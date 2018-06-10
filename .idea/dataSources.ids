@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="H2 - testapp" uuid="d430c6e0-b51b-4055-9807-ab15cf867132">
+    <database-info product="H2" version="1.4.196 (2017-06-10)" jdbc-version="4.0" driver-name="H2 JDBC Driver" driver-version="1.4.196 (2017-06-10)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="PUBLIC" catalog="TESTAPP"/>
+    <table name="ROLE" schema="PUBLIC" catalog="TESTAPP" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="CONSTRAINT_26" columns="ID"/>
+      <exported-key name="FKT4V0RRWEYK393BDGT107VDX0X" table="USERS_ROLES" schema="PUBLIC" catalog="TESTAPP" columns="ROLE_ID"/>
+    </table>
+    <table name="USER" schema="PUBLIC" catalog="TESTAPP" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SURNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="USERNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="CONSTRAINT_2" columns="ID"/>
+      <exported-key name="FKGD3IENDAOYH04B95YKQISE6QH" table="USERS_ROLES" schema="PUBLIC" catalog="TESTAPP" columns="USER_ID"/>
+      <index name="UKSB8BBOUER5WAK8VYIIY4PF2BX_INDEX_2" unique="true" columns="USERNAME"/>
+    </table>
+    <table name="USERS_ROLES" schema="PUBLIC" catalog="TESTAPP" type="TABLE">
+      <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="ROLE_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="FKT4V0RRWEYK393BDGT107VDX0X" columns="ROLE_ID" ref-table="ROLE" ref-schema="PUBLIC" ref-catalog="TESTAPP" ref-columns="ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKGD3IENDAOYH04B95YKQISE6QH" columns="USER_ID" ref-table="USER" ref-schema="PUBLIC" ref-catalog="TESTAPP" ref-columns="ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <index name="FKGD3IENDAOYH04B95YKQISE6QH_INDEX_A" unique="false" columns="USER_ID"/>
+      <index name="FKT4V0RRWEYK393BDGT107VDX0X_INDEX_A" unique="false" columns="ROLE_ID"/>
+    </table>
+  </data-source>
+</component>
